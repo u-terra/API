@@ -1,0 +1,190 @@
+ {
+	"info": {
+		"_postman_id": "6bbc1ef7-4eab-4b1e-9542-03b7498006b8",
+		"name": "Diplom. Kinopoisk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29482273",
+		"_collection_link": "https://cloudy-satellite-516939.postman.co/workspace/..~73994e18-07eb-4c17-8fdc-f228936b6962/collection/29482273-6bbc1ef7-4eab-4b1e-9542-03b7498006b8?action=share&source=collection_link&creator=29482273"
+	},
+	"item": [
+		{
+			"name": "Позитивные тесты.",
+			"item": [
+				{
+					"name": "Получение информации о сериале Внутри убийцы по ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "x-api-key",
+									"value": "KDHJZXN-N684K4G-M2NSSBG-FFK0HR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.kinopoisk.ru/film/355fa1f85dd44ba59a6646669d4bf45e",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kinopoisk",
+								"ru"
+							],
+							"path": [
+								"film",
+								"355fa1f85dd44ba59a6646669d4bf45e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение списка популярных фильмов",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "KDHJZXN-N684K4G-M2NSSBG-FFK0HR4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.kinopoisk.ru/lists/movies/popular-films/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kinopoisk",
+								"ru"
+							],
+							"path": [
+								"lists",
+								"movies",
+								"popular-films",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение информации о режиссёре Дени Вильнев по ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "KDHJZXN-N684K4G-M2NSSBG-FFK0HR4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.kinopoisk.ru/name/415350/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kinopoisk",
+								"ru"
+							],
+							"path": [
+								"name",
+								"415350",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Негативные тесты.",
+			"item": [
+				{
+					"name": "Запрос информации о фильме с невалидным ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "KDHJZXN-N684K4G-M2NSSBG-FFK0HR4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.kinopoisk.ru/films/0101010101",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kinopoisk",
+								"ru"
+							],
+							"path": [
+								"films",
+								"0101010101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Попытка получения списка популярных фильмов с невалидным API-ключом.",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "NTV 0125478912",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.kinopoisk.ru/lists/movies/popular-films/invalidId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"kinopoisk",
+								"ru"
+							],
+							"path": [
+								"lists",
+								"movies",
+								"popular-films",
+								"invalidId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Попытка использования неподдерживаемого HTTP метода для получения информации о фильме.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": " KDHJZXN-N684K4G-M2NSSBG-FFK0HR4",
+								"type": "text"
+							}
+						],
+					
+
+
